@@ -30,6 +30,12 @@ Run the following commands to install necessary dependencies.
   pip -r requirements.txt
 ```
 
+Install [Jacinle](https://github.com/vacancy/Jacinle).
+```Console
+  git clone https://github.com/vacancy/Jacinle --recursive
+  export PATH=<path_to_jacinle>/bin:$PATH
+```
+
 Install the referit3d python package from [ReferIt3D](https://github.com/referit3d/referit3d).
 ```Console
     git clone https://github.com/referit3d/referit3d
