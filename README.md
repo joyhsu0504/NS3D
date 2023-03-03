@@ -60,7 +60,7 @@ To evaluate NS3D:
   referit=<path_to/sr3d_train.csv>
   load_path=<path_to/model_to_evaluate.pth>
   
-  jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --evaluate --load $load_path
+  jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --load $load_path --evaluate
 ```
 
 Weights for our trained NS3D model can be found here and loaded into `load_path`.
@@ -86,3 +86,5 @@ Weights for our pretrained classification model can be found here and loaded int
 
 
 ## Acknowledgements
+
+Our codebase is built on top of [NSCL](https://github.com/vacancy/NSCL-PyTorch-Release) and [ReferIt3D](https://github.com/referit3d/referit3d). If you encounter any problems, please feel free to email me at joycj@stanford.edu. 
