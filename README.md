@@ -1,6 +1,9 @@
 # NS3D: Neuro-Symbolic Grounding of 3D Objects and Relations
 
 
+![figure](figure.png)
+<br />
+<br />
 **NS3D: Neuro-Symbolic Grounding of 3D Objects and Relations**
 <br />
 [Joy Hsu](http://web.stanford.edu/~joycj/),
