@@ -24,27 +24,27 @@ Specifically, you will need to
 
 Run the following commands to install necessary dependencies.
 
-```Console
+```bash
   conda create -n ns3d python=3.7.11
   conda activate ns3d
   pip -r requirements.txt
 ```
 
 Install [Jacinle](https://github.com/vacancy/Jacinle).
-```Console
+```bash
   git clone https://github.com/vacancy/Jacinle --recursive
   export PATH=<path_to_jacinle>/bin:$PATH
 ```
 
 Install the referit3d python package from [ReferIt3D](https://github.com/referit3d/referit3d).
-```Console
+```bash
   git clone https://github.com/referit3d/referit3d
   cd referit3d
   pip install -e .
 ```
 
 Compile CUDA layers for [PointNet++](http://arxiv.org/abs/1706.02413).
-```Console
+```bash
   cd models/scene_graph/point_net_pp/pointnet2
   python setup.py install
 ```
@@ -54,7 +54,7 @@ Compile CUDA layers for [PointNet++](http://arxiv.org/abs/1706.02413).
 
 To evaluate NS3D:
 
-```Console
+```bash
 
   scannet=<path_to/keep_all_points_with_global_scan_alignment.pkl>
   referit=<path_to/sr3d_train.csv>
@@ -71,7 +71,7 @@ Weights for our trained NS3D model can be found at [trained_ns3d.pth](https://dr
 
 To train NS3D:
 
-```Console
+```bash
 
   scannet=<path_to/keep_all_points_with_global_scan_alignment.pkl>
   referit=<path_to/sr3d_train.csv>
