@@ -38,19 +38,33 @@ Install [Jacinle](https://github.com/vacancy/Jacinle).
 
 Install the referit3d python package from [ReferIt3D](https://github.com/referit3d/referit3d).
 ```Console
-    git clone https://github.com/referit3d/referit3d
-    cd referit3d
-    pip install -e .
+  git clone https://github.com/referit3d/referit3d
+  cd referit3d
+  pip install -e .
 ```
 
 And compile CUDA layers for [PointNet++](http://arxiv.org/abs/1706.02413).
 ```Console
-    cd models/scene_graph/point_net_pp/pointnet2
-    python setup.py install
+  cd models/scene_graph/point_net_pp/pointnet2
+  python setup.py install
 ```
 
 
 ## Evaluation
+
+To evaluate NS3D:
+
+```Console
+
+  scannet=<path_to/keep_all_points_with_global_scan_alignment.pkl>
+  referit=<path_to/sr3d_train.csv>
+  load_path=<path_to/model.pth>
+  
+  jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --evaluate --load $load_path
+```
+
+Weights for our trained NS3D model can be found here and loaded into `load_path`.
+
 
 
 ## Training
