@@ -43,7 +43,7 @@ Install the referit3d python package from [ReferIt3D](https://github.com/referit
   pip install -e .
 ```
 
-And compile CUDA layers for [PointNet++](http://arxiv.org/abs/1706.02413).
+Compile CUDA layers for [PointNet++](http://arxiv.org/abs/1706.02413).
 ```Console
   cd models/scene_graph/point_net_pp/pointnet2
   python setup.py install
@@ -63,7 +63,7 @@ To evaluate NS3D:
   jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --load $load_path --evaluate
 ```
 
-Weights for our trained NS3D model can be found here and loaded into `load_path`.
+Weights for our trained NS3D model can be found at [trained_ns3d.pth](https://drive.google.com/drive/folders/1NKFcxqb9OnfqZBgSSTLBiChntSl7svbs?usp=sharing) and loaded into `load_path`.
 
 
 
@@ -77,14 +77,13 @@ To train NS3D:
   referit=<path_to/sr3d_train.csv>
   load_path=<path_to/pretrained_classification_model.pth>
   
-  
   jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --load $load_path --lr 0.0001 --epochs 5000 --save-interval 1 --validation-interval 1
 ```
 
-Weights for our pretrained classification model can be found here and loaded into `load_path`.
+Weights for our pretrained classification model can be found at [pretrained_cls.pth](https://drive.google.com/drive/folders/1NKFcxqb9OnfqZBgSSTLBiChntSl7svbs?usp=sharing) and loaded into `load_path`.
 
 
 
 ## Acknowledgements
 
-Our codebase is built on top of [NSCL](https://github.com/vacancy/NSCL-PyTorch-Release) and [ReferIt3D](https://github.com/referit3d/referit3d). If you encounter any problems, please feel free to email me at joycj@stanford.edu. 
+Our codebase is built on top of [NSCL](https://github.com/vacancy/NSCL-PyTorch-Release) and [ReferIt3D](https://github.com/referit3d/referit3d). Please feel free to email me at joycj@stanford.edu if any problems arise.
