@@ -58,7 +58,7 @@ To evaluate NS3D:
 
   scannet=<path_to/keep_all_points_with_global_scan_alignment.pkl>
   referit=<path_to/sr3d_train.csv>
-  load_path=<path_to/model.pth>
+  load_path=<path_to/model_to_evaluate.pth>
   
   jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --evaluate --load $load_path
 ```
@@ -68,6 +68,21 @@ Weights for our trained NS3D model can be found here and loaded into `load_path`
 
 
 ## Training
+
+To train NS3D:
+
+```Console
+
+  scannet=<path_to/keep_all_points_with_global_scan_alignment.pkl>
+  referit=<path_to/sr3d_train.csv>
+  load_path=<path_to/pretrained_classification_model.pth>
+  
+  
+  jac-run ns3d/trainval.py --desc ns3d/desc_ns3d.py --scannet-file $scannet --referit3D-file $referit --load $load_path --lr 0.0001 --epochs 5000 --save-interval 1 --validation-interval 1
+```
+
+Weights for our pretrained classification model can be found here and loaded into `load_path`.
+
 
 
 ## Acknowledgements
