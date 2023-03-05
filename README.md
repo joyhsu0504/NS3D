@@ -27,7 +27,7 @@ Run the following commands to install necessary dependencies.
 ```bash
   conda create -n ns3d python=3.7.11
   conda activate ns3d
-  pip -r requirements.txt
+  pip install -r requirements.txt
 ```
 
 Install [Jacinle](https://github.com/vacancy/Jacinle).
