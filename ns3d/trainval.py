@@ -385,11 +385,9 @@ def validate_epoch(epoch, trainer, val_dataloader, meters, all_scans_in_dict):
             vis.begin_table('ReferIt3D', columns)
             
         accuracy = []
-        easy_acc, hard_acc, view_dep_acc, view_indep_acc, multi_relate_acc, non_multi_relate_acc, high_arity_acc, non_high_arity_acc = [], [], [], [], [], [], [], []
+        easy_acc, hard_acc, view_dep_acc, view_indep_acc = [], [], [], []
         time_list = []
         view_dependent_words = {'facing', 'looking', 'front', 'behind', 'back', 'right', 'left', 'leftmost', 'rightmost', 'across'}
-        multi_relate_words = {'between', 'center', 'middle'}
-        high_arity_words = {'between', 'center', 'middle', 'facing', 'looking'}
         
         for feed_dict in val_dataloader:
             
@@ -432,24 +430,12 @@ def validate_epoch(epoch, trainer, val_dataloader, meters, all_scans_in_dict):
                 hardness = decode_stimulus_string(this_stimulus_id)[2]
                 this_easy = hardness <= 2
                 this_view_dependent = len(set(this_tokens).intersection(view_dependent_words)) > 0
-                this_multi_relate = len(set(this_tokens).intersection(multi_relate_words)) > 0
-                this_high_arity = len(set(this_tokens).intersection(high_arity_words)) > 0                
                 this_pred_acc = predictions[i] == target[i]
                 
                 if this_view_dependent:  
                     view_dep_acc.append(this_pred_acc)
                 else:
                     view_indep_acc.append(this_pred_acc)
-                    
-                if this_multi_relate:
-                    multi_relate_acc.append(this_pred_acc)
-                else:
-                    non_multi_relate_acc.append(this_pred_acc)
-                
-                if this_high_arity:
-                    high_arity_acc.append(this_pred_acc)
-                else:
-                    non_high_arity_acc.append(this_pred_acc)
                 
                 if this_easy:
                     easy_acc.append(this_pred_acc)
@@ -498,16 +484,6 @@ def validate_epoch(epoch, trainer, val_dataloader, meters, all_scans_in_dict):
         monitors['validation/acc/view_indep_acc'] = float(sum(view_indep_acc) / float(len(view_indep_acc)))
         monitors['validation/acc/easy_acc'] = float(sum(easy_acc) / float(len(easy_acc)))
         monitors['validation/acc/hard_acc'] = float(sum(hard_acc) / float(len(hard_acc)))
-        monitors['validation/acc/multi_relate_acc'] = float(sum(multi_relate_acc) / float(len(multi_relate_acc)))
-        monitors['validation/acc/non_multi_relate_acc'] = float(sum(non_multi_relate_acc) / float(len(non_multi_relate_acc)))
-        monitors['validation/acc/high_arity_acc'] = float(sum(high_arity_acc) / float(len(high_arity_acc)))
-        monitors['validation/acc/non_high_arity_acc'] = float(sum(non_high_arity_acc) / float(len(non_high_arity_acc)))
-        monitors['validation/acc/view_dep_acc_len'] = float(len(view_dep_acc))
-        monitors['validation/acc/view_indep_acc_len'] = float(len(view_indep_acc))
-        monitors['validation/acc/multi_relate_acc_len'] = float(len(multi_relate_acc))
-        monitors['validation/acc/non_multi_relate_acc_len'] = float(len(non_multi_relate_acc))
-        monitors['validation/acc/high_arity_acc_len'] = float(len(high_arity_acc))
-        monitors['validation/acc/non_high_arity_acc_len'] = float(len(non_high_arity_acc))
 
         meters.update(monitors)
         
