@@ -4,7 +4,7 @@
 ![figure](figure.png)
 <br />
 <br />
-**NS3D: Neuro-Symbolic Grounding of 3D Objects and Relations**
+**[NS3D: Neuro-Symbolic Grounding of 3D Objects and Relations](https://arxiv.org/abs/2303.13483)**
 <br />
 [Joy Hsu](http://web.stanford.edu/~joycj/),
 [Jiayuan Mao](http://jiayuanm.com/),
